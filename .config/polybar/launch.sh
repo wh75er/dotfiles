@@ -7,6 +7,10 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
-polybar wm  &
+polybar workspaces &
+polybar sound &
+polybar battery &
+polybar date &
+polybar tray &
 
 echo "Bar launched..."

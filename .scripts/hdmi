@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+  echo "There's no argument; Please type(On/Off); exiting..."
+  exit 0
+fi
+
+if [[ $1 == "on" ]]; then
+  xrandr --output HDMI2 --mode 1920x1080
+elif [[ $1 == "off" ]]; then
+  xrandr --output HDMI2 --off
+else
+  echo "Incorrect argument! Please type(On/Off); exiting..."
+fi
+

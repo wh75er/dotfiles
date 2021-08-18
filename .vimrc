@@ -22,6 +22,24 @@
 " ===================================================================
 
 
+" ____    ___
+"/\  _`\ /\_ \                    __
+"\ \ \L\ \//\ \    __  __     __ /\_\    ___     ____
+" \ \ ,__/ \ \ \  /\ \/\ \  /'_ `\/\ \ /' _ `\  /',__\
+"  \ \ \/   \_\ \_\ \ \_\ \/\ \L\ \ \ \/\ \/\ \/\__, `\
+"   \ \_\   /\____\\ \____/\ \____ \ \_\ \_\ \_\/\____/
+"    \/_/   \/____/ \/___/  \/___L\ \/_/\/_/\/_/\/___/
+"                             /\____/
+"                             \_/__/
+call plug#begin('~/.vim/plugged')
+Plug 'dylanaraps/wal.vim'
+Plug 'preservim/nerdtree'
+Plug 'cespare/vim-toml'
+Plug 'mattn/emmet-vim'
+Plug 'dense-analysis/ale'
+call plug#end()
+
+
 "   ____                                   ___                          
 "  /\  _`\                                /\_ \    __                   
 "  \ \ \L\ \___   __  __  __     __   _ __\//\ \  /\_\    ___      __   
@@ -30,7 +48,7 @@
 "     \ \_\ \____/\ \___x___/'\ \____\\ \_\  /\____\\ \_\ \_\ \_\ \____\
 "      \/_/\/___/  \/__//__/   \/____/ \/_/  \/____/ \/_/\/_/\/_/\/____/
 "                                                                     
-let g:powerline_pycmd="py3"
+"let g:powerline_pycmd="py3"
 
 
 "   __  __                      ____
@@ -42,10 +60,12 @@ let g:powerline_pycmd="py3"
 "      `\/__/  \/_/\/_/\/_/\/_/    \/___/  \/__/\/_/\/___/  \/_/\/___/
 "
 syntax on
+colorscheme wal
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set scrolloff=5
 set autoindent
 set number relativenumber
+set hidden
 
 autocmd BufNewFile,BufRead *.pro set filetype=prolog
 
@@ -62,15 +82,52 @@ autocmd BufNewFile,BufRead *.pro set filetype=prolog
 set ignorecase
 set smartcase
 set incsearch
+filetype on
+filetype plugin on
+filetype indent on
+
+
+
+" __  __  ____    ____    ____    ______                      
+"/\ \/\ \/\  _`\ /\  _`\ /\  _`\ /\__  _\                     
+"\ \ `\\ \ \ \L\_\ \ \L\ \ \ \/\ \/_/\ \/ _ __    __     __   
+" \ \ , ` \ \  _\L\ \ ,  /\ \ \ \ \ \ \ \/\`'__\/'__`\ /'__`\ 
+"  \ \ \`\ \ \ \L\ \ \ \\ \\ \ \_\ \ \ \ \ \ \//\  __//\  __/ 
+"   \ \_\ \_\ \____/\ \_\ \_\ \____/  \ \_\ \_\\ \____\ \____\
+"    \/_/\/_/\/___/  \/_/\/ /\/___/    \/_/\/_/ \/____/\/____/
+"                                                             
+map <C-t> :NERDTreeToggle<CR>
+
+
+
+" __  __  ______         __
+"/\ \/\ \/\__  _\/'\_/`\/\ \
+"\ \ \_\ \/_/\ \/\      \ \ \
+" \ \  _  \ \ \ \ \ \__\ \ \ \  __
+"  \ \ \ \ \ \ \ \ \ \_/\ \ \ \L\ \
+"   \ \_\ \_\ \ \_\ \_\\ \_\ \____/
+"    \/_/\/_/  \/_/\/_/ \/_/\/___/
+"
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+" Run this with ALEFix. It will beautify HTML file
+let g:ale_fixers = {}
+let g:ale_fixers['html'] = ['prettier'] 
+" % pair matching tags
+runtime macros/matchit.vim
+
 
 
 "           ╻┏ ┏━╸╻ ╻   ┏┳┓┏━┓┏━┓┏━┓
 "           ┣┻┓┣╸ ┗┳┛   ┃┃┃┣━┫┣━┛┗━┓
 "           ╹ ╹┗━╸ ╹    ╹ ╹╹ ╹╹  ┗━┛
 " 
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ.;ABCDEFGHIJKLMNOPQRSTUVWXYZ:/,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 map ; $
+
+map <C-p> :bp<CR>
+map <C-n> :bn<CR>
 
 command Spellenable setlocal spell spelllang=ru_yo,en_us
 command Spelldisable set nospell

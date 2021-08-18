@@ -1,7 +1,7 @@
 #!/bin/sh
 
 userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+usermodmap=~/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -21,10 +21,6 @@ if [ -f "$userresources" ]; then
 
 fi
 
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
-
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -34,7 +30,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+xset -b
 xset r rate 240 80
-setxkbmap -option ctrl:swapcaps
+xsetroot -cursor_name left_ptr
+#setxkbmap -option ctrl:swapcaps
 sh ~/.fehbg
 exec bspwm
+
+#xmodmap -e "keycode 104 = Return"
+#xmodmap -e "keycode 90 = Tab"

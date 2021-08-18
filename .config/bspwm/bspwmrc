@@ -1,11 +1,18 @@
 #! /bin/sh
 
+# Enable geoclue2 agent for redshift service
+if [[ -z $(ps -aux | grep /usr/lib/geoclue-2.0/demos/agent | grep -v grep) ]]; then
+    /usr/lib/geoclue-2.0/demos/agent &
+fi
+
 # Set-up keybindings
 sxhkd &
 setxkbmap -layout "us,ru" -option "grp:alt_shift_toggle"
+xmodmap ~/.Xmodmap
 
 # Set-up compositor manager + panel
-(compton &)
+#(compton &)
+(picom --experimental-backends &)
 $HOME/.config/polybar/launch.sh
 
 # Set-up wal run
@@ -30,6 +37,11 @@ bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a firefox desktop='^2'
+bspc rule -a jetbrains-clion desktop='^3' state=floating
+bspc rule -a jetbrains-pycharm desktop='^3' state=floating
+bspc rule -a jetbrains-webstorm desktop='^3' state=floating
+bspc rule -a jetbrains-goland desktop='^3' state=floating
+bspc rule -a discord desktop='^10'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off

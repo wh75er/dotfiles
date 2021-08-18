@@ -10,6 +10,7 @@
   export PATH=$PATH:$HOME/.pkg/dotnet
 # Variable, which allows you to build dotnet -f net46 profects( with .NET Framework)
   export FrameworkPathOverride=/usr/lib/mono/4.6-api
+  export TERM=xterm-256color
   
 (cat ~/.cache/wal/sequences &)
 
@@ -90,6 +91,10 @@ man() {
 
 alias neofetch="neofetch --ascii ~/.config/neofetch/logo"
 alias dots='/usr/bin/git --git-dir=$HOME/.dots --work-tree=$HOME'
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias ra='ranger'
+alias du='du -h --max-depth=1'
+alias ls='ls --color=always --group-directories-first'
 
 # User configuration
 
