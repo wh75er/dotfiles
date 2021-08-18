@@ -1,0 +1,10 @@
+:root {
+  --tridactyl-bg: #313132 !important;
+  --tridactyl-fg: white !important;
+}
+
+@-moz-document url-prefix(about:home), url-prefix(about:newtab) {
+  body {
+    background: #313132;
+  }
+}

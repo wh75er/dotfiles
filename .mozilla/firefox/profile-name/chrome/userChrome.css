@@ -1,0 +1,21 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+tabs {
+  counter-reset: tab-counter;
+}
+
+.tab-label::before {
+  counter-increment: tab-counter;
+  content: counter(tab-counter) " - ";
+}
+
+
+
+
+
+
+
+#TabsToolbar {
+  visibility: collapse;
+}
+
