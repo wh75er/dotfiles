@@ -1,4 +1,4 @@
-Xft.dpi: 144
+!Xft.dpi: 144
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
@@ -28,8 +28,8 @@ Xft.rgba: rgb
 *.foreground:   nord4
 *.background:   nord0
 *.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
+!*fading: 35
+!*fadeColor: nord3
 
 *.color0: nord1
 *.color1: nord11
@@ -47,3 +47,48 @@ Xft.rgba: rgb
 *.color13: nord15
 *.color14: nord7
 *.color15: nord6
+
+
+! __  __  ____                     __
+!/\ \/\ \/\  _`\                  /\ \__
+!\ \ \ \ \ \ \L\ \   __  _  __  __\ \ ,_\
+! \ \ \ \ \ \ ,  /  /\ \/ \/\ \/\ \\ \ \/
+!  \ \ \_\ \ \ \\ \ \/>  </\ \ \_/ |\ \ \_
+!   \ \_____\ \_\ \_\/\_/\_\\ \___/  \ \__\
+!    \/_____/\/_/\/ /\//\/_/ \/__/    \/__/
+!
+URxvt.perl-ext-common: default,matcher,resize-font,clipboard,keyboard-select,url-select
+
+URxvt.scrollBar: false
+URxvt*scrollTtyKeypress: true
+URxvt.font: xft:Source Code Pro:size=13, xft:Dejavu Sans Mono for Powerline:size=13
+
+! Clickable links
+! 
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.underline: true
+URxvt.url-select.launcher: firefox
+
+! keyboard-select
+URxvt.keysym.M-s: perl:keyboard-select:activate
+URxvt.keysym.M-r: perl:keyboard-select:search
+
+!   Clicked highlight
+!   
+URxvt.matcher.rend.0: Uline Bold fg5
+URxvt.colorUL: #4682B4
+
+! clipboard
+!
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+
+! Appearence
+!
+URxvt.cursorBlink: 1
+URxvt.internalBorder:  40
+
