@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [[ -z $@ ]]; then
+    echo "No arguments were provided...";
+    exit;
+fi
+
+nohup $@ &> /dev/null &
+
+sleep .1;
+
+kill -9 $PPID;

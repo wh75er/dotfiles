@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# http://github.com/mitchweaver/bin
+#
+# mass convert to webm
+#
+
+mk_webm() {
+    for ext ; do
+        find . -name "*.$ext" -exec bash -c \
+            'ffmpeg -i "{}" -y -c:v \
+            libvpx-vp9 -crf 9 -b:v 0 -c:a \
+            libopus -vbr on -b:a 64k \
+            "${0/.ext}.webm" && \
+            rm "{}"' {} \; &
+    done
+}
+
+mk_webm mp4 flv gif mkv 

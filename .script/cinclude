@@ -1,0 +1,3 @@
+#!/bin/sh
+
+export CPATH=$CPATH:$(pwd)

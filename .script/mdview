@@ -1,0 +1,12 @@
+#!/bin/sh
+
+[ -z $1 ] && echo "No md file found!" && exit 1
+[ $# -ne 1 ] && echo "Too many arguments!" && exit 1
+
+tmp_path=$(mktemp --suffix=.pdf)
+tex_font_options=/home/wh75er/.scripts/fontoptions.tex
+#--include-in-header=$tex_font_options
+
+pandoc -o $tmp_path --pdf-engine=xelatex -V mainfont="DejaVu Sans Mono" $1 || exit 1
+
+zathura $tmp_path && rm $tmp_path
