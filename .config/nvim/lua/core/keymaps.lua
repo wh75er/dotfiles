@@ -76,3 +76,8 @@ map('n', '<C-p>', ":FzfLua files<CR>")
 map('n', '<C-i>', ":FzfLua files cwd=%:p:h<CR>")
 map('n', '<C-k>', ":FzfLua buffers<CR>")
 map('n', '<C-s>', ":FzfLua grep<CR>")
+
+-- Gitsigns
+map('n', '<leader>hp', ':Gitsigns preview_hunk<CR>')
+map('n', '[g', ':Gitsigns prev_hunk<CR>')
+map('n', ']g', ':Gitsigns next_hunk<CR>')
