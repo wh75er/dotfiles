@@ -73,7 +73,7 @@ map('n', '<space>z', ':ZenMode<CR>')
 
 -- FZF
 map('n', '<C-p>', ":FzfLua files<CR>")
-map('n', '<C-i>', ":FzfLua files cwd=%:p:h<CR>")
+map('n', '<C-j>', ":FzfLua files cwd=%:p:h<CR>")
 map('n', '<C-k>', ":FzfLua buffers<CR>")
 map('n', '<C-s>', ":FzfLua grep<CR>")
 
